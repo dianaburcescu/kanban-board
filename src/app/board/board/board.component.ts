@@ -11,6 +11,8 @@ import {
   TaskDialogComponent,
   TaskDialogResult,
 } from './task-dialog/task-dialog.component';
+import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 const getObservable = (collection: AngularFirestoreCollection<Task>) => {
   const subject = new BehaviorSubject<Task[]>([]);
@@ -30,7 +32,7 @@ export class BoardComponent {
   inProgress = getObservable(this.store.collection('inProgress'));
   done = getObservable(this.store.collection('done'));
 
-  constructor(private dialog: MatDialog, private store: AngularFirestore) {}
+  constructor(private dialog: MatDialog, private store: AngularFirestore, private authService: AuthService, private router: Router) {}
 
   newTask(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
@@ -88,5 +90,12 @@ export class BoardComponent {
       event.previousIndex,
       event.currentIndex
     );
+  }
+
+  logout() {
+    this.authService
+      .logout()
+      .then(() => this.router.navigate(['/']))
+      .catch((e) => console.log(e.message));
   }
 }

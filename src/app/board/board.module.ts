@@ -1,8 +1,7 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -21,9 +20,6 @@ import { TaskComponent } from './board/task/task.component';
   imports: [
     BoardRoutingModule,
     CommonModule,
-    // this should be moved
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
     DragDropModule,
     FormsModule,
     MatButtonModule,

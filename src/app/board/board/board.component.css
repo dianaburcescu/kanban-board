@@ -45,3 +45,11 @@ app-new-task {
 .cdk-drag-placeholder {
   opacity: 0;
 }
+mat-toolbar {
+  background-color: #5eccd6;
+  color: #fff;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
