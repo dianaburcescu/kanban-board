@@ -1,9 +1,9 @@
 {
   "targets": {
-    "kanbanfire-b91c5": {
+    "kanban-board-118c9": {
       "hosting": {
         "kanban-board": [
-          "kanbanfire-b91c5"
+          "kanban-board-118c9"
         ]
       }
     }
